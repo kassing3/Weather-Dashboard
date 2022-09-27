@@ -15,20 +15,20 @@
             <h1> Weather Dashboard</h1>
         </header>
 
-        <section class="card text-center container-fluid">
+        <section class="text-center container-fluid">
            
-            <h1 class="card-header"> Search for a City: </h1>
-            <form class="input-group justify-content-center my-2" >
-                <input id="search-input" type="text" class="form-control-lg" placeholder="Dallas">
+            <form class="input-group justify-content-center my-2" id="search-form" >
+                <span class="input-group-text">Search for a City:</span>
+                <input id="search-input" type="text" class="form-control-lg" placeholder="Dallas" required>
                 <button type="submit" class="btn btn-primary" > Search </button>
                
             </form>
 
-            <div class="grid text-center my-3">
+            <!-- <div class="grid text-center my-3 top-cities">
                 <button data-city="austin" class="btn g-col-4 btn-secondary">Austin</button>
                 <button data-city="chicago" class="btn g-col-4  btn-secondary">Chicago</button>
                 <button data-city="new york" class="btn g-col-4  btn-secondary">New york</button>
-            </div>
+            </div> -->
             
             
         </section>
