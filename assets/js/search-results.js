@@ -6,6 +6,9 @@ var currentDateEl= document.getElementById("currentDate")
 var currentTempEl = document.getElementById("currentTemp")
 var currentWindEl = document.getElementById("currentWind")
 var currentHumidityEl = document.getElementById("currentHumidity")
+var weatherSection = document.getElementById("weatherSection")
+
+var fiveDayArr = [];
 
 var currentDate = moment().format("MM/DD/YYYY")
 currentDateEl.textContent = currentDate;
@@ -77,12 +80,54 @@ function callFiveDayWeatherAPI(lat, lng) {
  .then(function(data){
     console.log(data);
     
-    // for (var i =0; i < 5; i++) {
-    //     if (data.list.dt_txt = )
-    // } 
+    for (var i =0; i < data.list.length; i = i +8) {
+        fiveDayArr.push(data.list[i]); 
+    };
+
+    for (var i=0; i < fiveDayArr.length; i++){
+         var cardEl = document.createElement("div");
+        cardEl.classList.add("card", "col-2");
+       
+        var cardHeaderEl = document.createElement("h4");
+        cardHeaderEl.classList.add("card-header", "text-center");
+        cardHeaderEl.textContent = moment(fiveDayArr[i].dt_txt).format("MM/DD/YYYY")
+       
+
+        var weatherIconEl = document.createElement("img")
+        var iconURL = "http://openweathermap.org/img/wn/" + fiveDayArr[i].weather[0].icon + "@2x.png"
+        weatherIconEl.classList.add("card-img", "fiveDayIcon")
+        weatherIconEl.setAttribute("src",iconURL );
+
+        var cardBodyEl = document.createElement("div");
+        cardBodyEl.classList.add("card-body", "text-center");
+
+        var tempEl = document.createElement("p");
+        tempEl.setAttribute("class", "card-text");
+        tempEl.innerHTML = "<strong>Temperature: </strong><br>" + fiveDayArr[i].main.temp + "\u00B0F";
+
+        var humidEl = document.createElement("p");
+        humidEl.setAttribute("class", "card-text")
+        humidEl.innerHTML = "<strong>Humidity: </strong><br>" + fiveDayArr[i].main.humidity + " MPH";
+
+
+        var windEl = document.createElement("p");
+        windEl.setAttribute("class", "card-text");
+        windEl.innerHTML = "<strong>Wind: </strong><br>" + fiveDayArr[i].wind.speed + "%";
+
+
+        cardBodyEl.append(tempEl, humidEl,windEl );
+        cardEl.append(cardHeaderEl,weatherIconEl, cardBodyEl);
+        weatherSection.append(cardEl);
+
+
+    }
+
+    console.log(fiveDayArr);
 
  })
 
 }
+
+
 
 getParams();

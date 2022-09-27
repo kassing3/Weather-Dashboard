@@ -19,30 +19,19 @@
             <h3 id="cityEl"></h3> 
 
 
-            <section class="row currentWeather">
-                <div class="card col-12">
-                    <h4 class="card-header text-center">Current Weather</h4>
-            
-                    <div class="card-body text-center" >
-                        <h5 id="currentDate" class="card-title"></h5>
-                        <img id="currentWeatherIconEl"></img>
-                        
-                        <p class="card-text"> <strong>Temperature:</strong> <span id="currentTemp"></span></p>
-                        <p class="card-text"> <strong>Wind:</strong> <span id="currentWind"></span></p>
-                        
-                        <p class="card-text"> <strong>Humidity:</strong> <span id="currentHumidity"></span></p> 
+            <section id="weatherSection" class="row">
+                <div class="card col-2">
+                    <h4 class="card-header text-center" id="currentDate"></h4>
+                    <!-- <h5>Current Weather</h5> -->
+                    <img id="currentWeatherIconEl" class="card-img fiveDayIcon"></img>
+                    <div class="card-body text-center">
+                        <p class="card-text"> <strong>Temperature:</strong><br><span id="currentTemp"></span></p>
+                        <p class="card-text"> <strong>Wind:</strong><br><span id="currentWind"></span></p>
+                        <p class="card-text"> <strong>Humidity:</strong><br><span id="currentHumidity"></span></p> 
+
                     </div>
                 </div>
-            </section>
-     
-
-           <section class="row fiveDayWeather">
-            
-
-
-           </section>  
-
-            
+            </section>    
 
         </main>
 
