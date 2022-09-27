@@ -9,3 +9,8 @@ header {
 a {
     color: white;
 }
+
+#currentWeatherIconEl {
+    width: 50px;
+    height: auto;
+}
