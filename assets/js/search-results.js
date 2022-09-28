@@ -19,9 +19,11 @@ currentDateEl.textContent = currentDate;
 function getParams() {
     var searchParamsArr = document.location.search.split("&");
     var cityParam = searchParamsArr[0].split("=").pop();
+    console.log(cityParam)
 
     var locQueryUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityParam + ",US" + "&appid=" + APIKey
     
+    console.log(locQueryUrl)
 
 
 
@@ -72,7 +74,7 @@ function callCurrentWeatherAPI(lat, lng){
 };
 
 function callFiveDayWeatherAPI(lat, lng) {
- var fiveQueryURL = "http://api.openweathermap.org/data/2.5/forecast?" + "lat=" + lat + "&lon=" + lng + "&appid=" + APIKey + "&units=imperial" 
+ var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?" + "lat=" + lat + "&lon=" + lng + "&appid=" + APIKey + "&units=imperial" 
  
  
  fetch(fiveQueryURL)
@@ -166,7 +168,7 @@ for (var i= 0; i < searchArr.length; i++){
 function prevSearchSubmit(event) {
     
     cityInput =  document.getElementsByClassName("prevSearchBtn")[0].textContent;
-    location.assign("./search-results.html?q=" + cityInput + "&appid=" + APIKey)
+    location.reload("./search-results.html?q=" + cityInput + "&appid=" + APIKey)
 }
 
 prevSearchEl.addEventListener("click", prevSearchSubmit)
