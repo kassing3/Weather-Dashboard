@@ -88,7 +88,7 @@ function callFiveDayWeatherAPI(lat, lng) {
 
     for (var i=0; i < fiveDayArr.length; i++){
          var cardEl = document.createElement("div");
-        cardEl.classList.add("card", "col-2");
+        cardEl.classList.add("card", "col-12", "col-md-2");
        
         var cardHeaderEl = document.createElement("h4");
         cardHeaderEl.classList.add("card-header", "text-center");
