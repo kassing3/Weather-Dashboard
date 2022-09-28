@@ -8,9 +8,11 @@ function searchSubmit(event) {
     event.preventDefault();
     cityInput =  document.getElementById("search-input").value
 
+    var searches = [];
+    searches.push(cityInput);
+    searchArr = searches;
 
-    //Set local storage from searches
-    searchArr.push(cityInput);
+    //Set local storage from searche
     localStorage.setItem("search", JSON.stringify(searchArr));
 
     location.assign("./search-results.html?q=" + cityInput + "&appid=" + APIKey)
