@@ -24,7 +24,7 @@ searchFormEl.addEventListener("submit", searchSubmit)
 
 //Pull local storage array to create buttons for previous searches
 
-searchArr = JSON.parse(localStorage.getItem("search"));
+searchArr = JSON.parse(localStorage.getItem("search")) || [];
 console.log(searchArr);
 
 
