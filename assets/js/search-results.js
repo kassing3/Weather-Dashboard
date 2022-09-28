@@ -7,6 +7,8 @@ var currentTempEl = document.getElementById("currentTemp")
 var currentWindEl = document.getElementById("currentWind")
 var currentHumidityEl = document.getElementById("currentHumidity")
 var weatherSection = document.getElementById("weatherSection")
+var searchFormEl = document.querySelector("#search-form")
+
 
 var fiveDayArr = [];
 
@@ -67,7 +69,7 @@ function callCurrentWeatherAPI(lat, lng){
        
     })
 
-}
+};
 
 function callFiveDayWeatherAPI(lat, lng) {
  var fiveQueryURL = "http://api.openweathermap.org/data/2.5/forecast?" + "lat=" + lat + "&lon=" + lng + "&appid=" + APIKey + "&units=imperial" 
@@ -129,5 +131,42 @@ function callFiveDayWeatherAPI(lat, lng) {
 }
 
 
-
 getParams();
+
+function displaySearchSubmit(event) {
+    event.preventDefault();
+    cityInput =  document.getElementById("search-input").value
+
+     //Set local storage from searches
+     searchArr.push(cityInput);
+     localStorage.setItem("search", JSON.stringify(searchArr));
+
+    location.assign("./search-results.html?q=" + cityInput + "&appid=" + APIKey)
+}
+
+
+searchFormEl.addEventListener("submit", displaySearchSubmit)
+
+
+//Pull local storage array to create buttons for previous searches
+
+searchArr = JSON.parse(localStorage.getItem("search"));
+console.log(searchArr);
+
+
+for (var i= 0; i < searchArr.length; i++){
+    var prevSearchBtn = document.createElement("button")
+    prevSearchBtn.classList.add("btn", "g-col-3", "mx-1", "btn-secondary", "prevSearchBtn")
+    prevSearchBtn.textContent = searchArr[i];
+    prevSearchEl.append(prevSearchBtn);
+}
+
+
+
+function prevSearchSubmit(event) {
+    
+    cityInput =  document.getElementsByClassName("prevSearchBtn")[0].textContent;
+    location.assign("./search-results.html?q=" + cityInput + "&appid=" + APIKey)
+}
+
+prevSearchEl.addEventListener("click", prevSearchSubmit)

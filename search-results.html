@@ -15,14 +15,29 @@
             <h1> <a href="./index.html"> Weather Dashboard</a></h1>
         </header>
 
-        <main class="container" >
-            <h3 id="cityEl"></h3> 
+        <main class="container">
+            <section class="text-center container-fluid">
+           
+                <form class="input-group justify-content-center my-2" id="search-form" >
+                    <span class="input-group-text">Search for a City:</span>
+                    <input id="search-input" type="text" class="form-control-lg" placeholder="Dallas" required>
+                    <button type="submit" class="btn btn-primary" > Search </button>
+                   
+                </form>
+    
+                <div class="grid text-center" id="prevSearchEl">
+                    <span>Previously Searched:</span>
+                </div>
+                
+                
+            </section>
 
+            <h3 id="cityEl" class="text-bg-secondary m-3"></h3> 
 
             <section id="weatherSection" class="row">
                 <div class="card col-2">
-                    <h4 class="card-header text-center" id="currentDate"></h4>
-                    <!-- <h5>Current Weather</h5> -->
+                    <h4 class="card-header text-center">Current Weather</h4>
+                    <h5 class="text-center card-title" id="currentDate"></h5>
                     <img id="currentWeatherIconEl" class="card-img fiveDayIcon"></img>
                     <div class="card-body text-center">
                         <p class="card-text"> <strong>Temperature:</strong><br><span id="currentTemp"></span></p>
@@ -36,8 +51,7 @@
         </main>
 
 
-
-
+        
         <script
         type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
