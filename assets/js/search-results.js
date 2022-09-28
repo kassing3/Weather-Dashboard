@@ -21,7 +21,7 @@ function getParams() {
     var cityParam = searchParamsArr[0].split("=").pop();
     console.log(cityParam)
 
-    var locQueryUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityParam + ",US" + "&appid=" + APIKey
+    var locQueryUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityParam + ",US" + "&appid=" + APIKey
     
     console.log(locQueryUrl)
 
@@ -58,7 +58,7 @@ function callCurrentWeatherAPI(lat, lng){
     .then(function(data){
         console.log(data)
 
-        var iconURL = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
+        var iconURL = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
         var currentTemp = data.main.temp
         var currentWind = data.wind.speed
         var currentHumidity = data.main.humidity
@@ -98,7 +98,7 @@ function callFiveDayWeatherAPI(lat, lng) {
        
 
         var weatherIconEl = document.createElement("img")
-        var iconURL = "http://openweathermap.org/img/wn/" + fiveDayArr[i].weather[0].icon + "@2x.png"
+        var iconURL = "https://openweathermap.org/img/wn/" + fiveDayArr[i].weather[0].icon + "@2x.png"
         weatherIconEl.classList.add("card-img", "fiveDayIcon")
         weatherIconEl.setAttribute("src",iconURL );
 
